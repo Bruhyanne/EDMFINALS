@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food Sales Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar" style="display: none;">
+            <h1 class="sidebar-logo">Dashboard</h1>
+        </aside>
+
+        <main class="main-content">
+            <div class="section header-section">
+                <h1 class="dashboard-title">Balaji Fast Food Sales Analysis</h1>
+            </div>
+
+            <nav class="horizontal-nav">
+                <button class="nav-item active" onclick="showTab('overview')">
+                    <span class="emoji">🔍</span> Overview
+                </button>
+                <button class="nav-item" onclick="showTab('dashboard')">
+                    <span class="emoji">📊</span> Dashboard
+                </button>
+                <button class="nav-item" onclick="showTab('forecast')">
+                    <span class="emoji">📈</span> Descriptive Analysis
+                </button>
+                <button class="nav-item" onclick="showTab('time')">
+                    <span class="emoji">📅</span> Predictive Analysis
+                </button>
+                <button class="nav-item" onclick="showTab('insights')">
+                    <span class="emoji">🔍</span> Insights
+                </button>
+            </nav>
+            <div id="overview" class="tab-content active">
+                <section
+                    style="font-family: 'Segoe UI', sans-serif; background-color: #1e1e2f; color: #f0f0f0; padding: 50px 20px;">
+                    <!-- Overview Header -->
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <h1 style="font-size: 2.8rem; color: #f39c12;">Balaji Fast Food Sales Overview</h1>
+                        <p style="font-size: 1.2rem; color: #ccc; max-width: 700px; margin: 0 auto;">
+                            Uncovering insights behind every bite, your all-in-one sales intelligence dashboard for
+                            smarter decisions.
+                        </p>
+                    </div>
+
+                    <!-- Overview Cards -->
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto;">
+                        <!-- Card 1 -->
+                        <div
+                            style="background-color: #2a2a40; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            <h3 style="color: #f39c12; font-size: 1.5rem;">📍 Multi-Branch Performance</h3>
+                            <p style="margin-top: 10px;">Track sales metrics across all Balaji branches, identifying
+                                which outlets lead in revenue and traffic.</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div
+                            style="background-color: #2a2a40; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            <h3 style="color: #f39c12; font-size: 1.5rem;">🍔 Top-Selling Items</h3>
+                            <p style="margin-top: 10px;">Discover our best-performing menu categories like Combos,
+                                Beverages, and Burgers with real-time trends.</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div
+                            style="background-color: #2a2a40; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            <h3 style="color: #f39c12; font-size: 1.5rem;">📅 Time-Based Insights</h3>
+                            <p style="margin-top: 10px;">View performance over months, spot seasonal patterns, and
+                                strategize for peak periods.</p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div
+                            style="background-color: #2a2a40; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            <h3 style="color: #f39c12; font-size: 1.5rem;">📈 Strategic Growth Focus</h3>
+                            <p style="margin-top: 10px;">Use data to detect underperforming areas and uncover
+                                opportunities for operational improvement and expansion.</p>
+                        </div>
+                    </div>
+
+                    <!-- Final Note -->
+                    <div style="max-width: 900px; margin: 60px auto 0; text-align: center;">
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: #ddd;">
+                            This Overview isn't just a snapshot of sales, it’s your tool for making smarter, faster, and
+                            more profitable decisions at every level of the business.
+                        </p>
+                        <p style="margin-top: 20px; font-weight: bold; color: #f39c12;">
+                            Dive into the data. Discover the difference.
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+
+            <div id="dashboard" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Key Performance Indicators</h2>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <span class="kpi-icon">💸</span>
+                            <div class="kpi-value">₱275,230.00</div>
+                            <div class="kpi-label">Total Sales</div>
+                            <div class="kpi-change">↗ Strong Performance</div>
+                        </div>
+                        <div class="kpi-card">
+                            <span class="kpi-icon">🛒</span>
+                            <div class="kpi-value">1,000</div>
+                            <div class="kpi-label">Total Orders</div>
+                            <div class="kpi-change">Customers Served</div>
+                        </div>
+                        <div class="kpi-card">
+                            <span class="kpi-icon">💰</span>
+                            <div class="kpi-value">₱275.23</div>
+                            <div class="kpi-label">Avg. Order Value</div>
+                            <div class="kpi-change">Per Transaction</div>
+                        </div>
+                        <div class="kpi-card">
+                            <span class="kpi-icon">🌟</span>
+                            <div class="kpi-value">₱65,820.00</div>
+                            <div class="kpi-label">Sandwich</div>
+                            <div class="kpi-change">Customer Favorite</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="section charts-section">
+                    <h2 class="section-title">Core Sales Trends</h2>
+                    <div class="charts-grid">
+
+                        <div class="chart-container">
+                            <div class="chart-title">Month-over-Month Growth</div>
+                            <div id="category-sales-chart"><iframe src="monthly_sales_chart_growth_DUP.html"
+                                    width="100%" height="550" style="border: none; background-color: #3a4f63;">
+                                </iframe></div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-title">Average Revenue </div>
+                            <div id="payment-method-chart"><iframe src="avg_revenue_trend_DUP.html" width="100%"
+                                    height="550" style="border: none; background-color: #3a4f63;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h2 class="section-title">Sales Performance</h2>
+                        <div id="payment-method-chart"><iframe src="salesperformance.html" width="100%" height="500"
+                                frameborder="0"></iframe></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="products" class="tab-content">
+                <div class="section charts-section">
+                    <h2 class="section-title">Product Performance Deep Dive</h2>
+                    <div class="charts-grid">
+                        <div class="chart-container full-width">
+                            <div class="chart-title">Top 5 Selling Products</div>
+                            <div id="top-products-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="payment" class="tab-content">
+                <div class="section charts-section">
+                    <h2 class="section-title">Payment Method Analysis</h2>
+                    <div class="charts-grid">
+                        <div class="chart-container full-width">
+                            <div class="chart-title">Sales Distribution by Payment Method</div>
+                            <div id="payment-method-large-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="time" class="tab-content">
+                <div class="section charts-section">
+                    <h2 class="section-title">Time-Based Sales Patterns</h2>
+                    <div class="charts-grid">
+                        <h1>Forecast Chart Viewer</h1>
+
+                        <label for="itemSelect">Select Item:</label>
+                        <select id="itemSelect" onchange="loadForecast()">
+                            <option value="aalopuri">Aalopuri</option>
+                            <option value="cold_coffee">Cold Coffee</option>
+                            <option value="frankie">Frankie</option>
+                            <option value="panipuri">Panipuri</option>
+                            <option value="sandwich">Sandwich</option>
+                            <option value="sugarcane_juice">Sugarcane Juice</option>
+                            <option value="vadapav">Vadapav</option>
+                        </select>
+
+                        <label for="monthSelect">Select Duration:</label>
+                        <select id="monthSelect" onchange="loadForecast()">
+                            <option value="3months">3 Months</option>
+                            <option value="6months">6 Months</option>
+                            <option value="9months">9 Months</option>
+                            <option value="12months">12 Months</option>
+                        </select>
+
+                        <iframe id="forecast_iframe_unique" src="forecast_htmls/aalopuri_3months.html" title="Forecast"
+                            scrolling="no"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div id="forecast" class="tab-content">
+                <div class="section charts-section">
+                    <h2 class="section-title">Future Sales Projections</h2>
+                    <div class="charts-grid">
+
+                        <!-- Forecast Chart Section -->
+                        <div class="chart-container full-width">
+                            <div class="chart-title">Monthly Sales Trend</div>
+                            <div class="chart-switcher">
+                                <button onclick="showForecastChart('monthly', this)"
+                                    class="switch-btn active">Monthly</button>
+                                <button onclick="showForecastChart('quarterly', this)"
+                                    class="switch-btn">Quarterly</button>
+                                <button onclick="showForecastChart('bytype', this)" class="switch-btn">By Type</button>
+                                <button onclick="showForecastChart('growth', this)" class="switch-btn">Growth</button>
+                            </div>
+                            <iframe id="forecast-frame" src="monthly_sales_chart_monthly.html"></iframe>
+                        </div>
+
+                        <!-- Category Chart Section -->
+                        <div class="chart-container full-width" style="margin-top: 50px;">
+                            <div class="chart-title">Sales Conversion vs Quantity</div>
+                            <div class="charts1">
+                                <button onclick="showCategoryChart('all', this)" class="switch-btn active">All</button>
+                                <button onclick="showCategoryChart('beverages', this)"
+                                    class="switch-btn">Beverages</button>
+                                <button onclick="showCategoryChart('fastfood', this)"
+                                    class="switch-btn">Fastfood</button>
+                            </div>
+                            <iframe id="chart-all" src="item_scatter_charts/item_scatter_all.html"
+                                style="display:block;"></iframe>
+                            <iframe id="chart-beverages" src="item_scatter_charts/item_scatter_beverages.html"
+                                style="display:none;"></iframe>
+                            <iframe id="chart-fastfood" src="item_scatter_charts/item_scatter_fastfood.html"
+                                style="display:none;"></iframe>
+                        </div>
+
+                        <!-- NEW: Sales by Time of Sale Chart -->
+                        <div class="chart-container full-width" style="margin-top: 50px;">
+                            <div class="chart-title">Sales Performance by Time of Sale Period</div>
+                            <iframe src="salesperformance.html" width="100%" height="500" frameborder="0"></iframe>
+                        </div>
+
+                        <!-- Top Items Chart Section -->
+                        <div class="chart-container full-width" style="margin-top: 50px;">
+                            <div class="chart-title">Top Items by Metric</div>
+
+                            <div class="charts1">
+                                <button onclick="showTopItemsChart('revenue', this)"
+                                    class="switch-btn active">Revenue</button>
+                                <button onclick="showTopItemsChart('quantity', this)"
+                                    class="switch-btn">Quantity</button>
+                                <button onclick="showTopItemsChart('frequency', this)"
+                                    class="switch-btn">Frequency</button>
+                                <button onclick="showTopItemsChart('avgprice', this)" class="switch-btn">Avg
+                                    Price</button>
+                            </div>
+
+                            <iframe id="chart-revenue" src="top10_Revenue.html" style="display:block;"></iframe>
+                            <iframe id="chart-quantity" src="top10_Quantity.html" style="display:none;"></iframe>
+                            <iframe id="chart-frequency" src="top10_Frequency.html" style="display:none;"></iframe>
+                            <iframe id="chart-avgprice" src="top10_AvgPrice.html" style="display:none;"></iframe>
+                        </div>
+
+                        <div class="chart-container full-width" style="margin-top: 50px;">
+                            <div class="chart-title">📊 Visual Insights Dashboard</div>
+
+                            <div class="charts1">
+                                <button onclick="showChart('scatter', this)" class="switch-btn active">Scatter</button>
+                                <button onclick="showChart('correlation', this)" class="switch-btn">Correlation</button>
+                                <button onclick="showChart('segments', this)" class="switch-btn">Segments</button>
+                                <button onclick="showChart('outliers', this)" class="switch-btn">Outliers</button>
+                                <button onclick="showChart('trend', this)" class="switch-btn">Line Trend</button>
+                            </div>
+
+                            <iframe id="chart-scatter" src="scatter_plot.html" style="display:block;"></iframe>
+                            <iframe id="chart-correlation" src="correlation_matrix.html" style="display:none;"></iframe>
+                            <iframe id="chart-segments" src="segments_bar_chart.html" style="display:none;"></iframe>
+                            <iframe id="chart-outliers" src="outliers_by_segment.html" style="display:none;"></iframe>
+                            <iframe id="chart-trend" src="avg_revenue_trend.html" style="display:none;"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="insights" class="tab-content">
+                <div class="section insights-section">
+                    <h2 class="section-title">Key Narrative Insights</h2>
+                    <div class="insights-content">
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Overall Sales Performance:</strong> The restaurant achieved a total sales
+                                revenue of ₱275,230.00 from 1,000 orders,
+                                indicating a stable customer base and consistent demand.
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Average Order Value:</strong> Customers spent an average of ₱275.23 per order,
+                                which serves as a useful metric for monitoring spending patterns and potential upselling
+                                opportunities.
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Monthly Growth:</strong> Sales are fluctuating throughout the year, suggesting
+                                seasonal variations or inconsistent promotional effectiveness.
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Top Categories:</strong> Fastfood is the leading contributor to overall sales,
+                                indicating strong customer preference and potential for focused menu development in this
+                                category.
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Payment Preferences:</strong> Cash remains the most commonly used payment
+                                method, highlighting a need to maintain and possibly upgrade cash handling processes
+                                while considering incentives for digital payments.
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Customer Favorites:</strong> The Sandwich ranks as the top-selling item, showing
+                                its popularity and importance in maintaining repeat business.
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Peak Hours:</strong> The highest volume of sales occurs during the Night time,
+                                which is critical for planning staffing and inventory.
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-text">
+                                <strong>Busiest Day:</strong> Wednesday consistently sees the highest sales, pointing to
+                                mid-week promotional effectiveness or routine customer behavior.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    <script>
+        // Sample Fast Food Sales Data (Replace with processed data from CSV)
+        const salesData = {
+            totalSales: 1567890.50,
+            totalOrders: 12345,
+            averageOrderValue: 127.00,
+            monthlySales: {
+                labels: ["2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12"],
+                values: [120000, 135000, 140000, 125000, 150000, 160000, 145000, 130000, 155000, 165000, 170000, 180000]
+            },
+            salesByCategory: {
+                labels: ["Burgers", "Pizzas", "Sides", "Drinks", "Desserts"],
+                values: [600000, 400000, 250000, 200000, 117890]
+            },
+            salesByPaymentMethod: {
+                labels: ["Cash", "Card", "Mobile Pay", "Online Transfer"],
+                values: [700000, 500000, 300000, 67890]
+            },
+            topSellingItems: {
+                labels: ["Classic Burger", "Pepperoni Pizza", "French Fries", "Coca-Cola", "Chocolate Sundae"],
+                values: [120000, 95000, 75000, 60000, 45000]
+            },
+            salesByHour: {
+                labels: ["08 AM", "09 AM", "10 AM", "11 AM", "12 PM", "01 PM", "02 PM", "03 PM", "04 PM", "05 PM", "06 PM", "07 PM", "08 PM", "09 PM", "10 PM"],
+                values: [15000, 20000, 35000, 70000, 150000, 130000, 80000, 60000, 75000, 100000, 180000, 190000, 160000, 100000, 50000]
+            },
+            salesByDayOfWeek: {
+                labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                values: [180000, 160000, 170000, 190000, 250000, 350000, 267890]
+            },
+            forecastedMonthlySales: {
+                labels: ["2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04"],
+                actual: [120000, 135000, 140000, 125000, 150000, 160000, 145000, 130000, 155000, 165000, 170000, 180000],
+                predicted: [null, null, null, null, null, null, null, null, null, null, null, null, 185000, 195000, 200000, 210000] // 'null' for actuals, then predicted
+            }
+        };
+
+        // NEW Color palette for charts (matching new theme)
+        const colors = {
+            primary: '#1ABC9C', // Turquoise
+            secondary: '#F39C12', // Orange
+            accent: '#3498DB', // Peter River (another blue)
+            darkText: '#ECF0F1', // Light text on dark background
+            background: '#34495E', // Card background
+            gradientColors: ['#1ABC9C', '#F39C12', '#3498DB', '#9B59B6', '#F1C40F', '#1ABC9C', '#E74C3C', '#2C3E50'],
+            subtle_border: 'rgba(255, 255, 255, 0.1)',
+            card_bg: '#34495E'
+        };
+
+        // Tab switching functionality
+        function showTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            // Change from .sidebar-nav-item to .horizontal-nav .nav-item
+            const navItems = document.querySelectorAll('.horizontal-nav .nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            // Add active class to the clicked nav item (now within horizontal-nav)
+            // Use querySelector to find the correct button based on the tabName
+            const clickedButton = document.querySelector(`.horizontal-nav .nav-item[onclick="showTab('${tabName}')"]`);
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+            renderChartsForTab(tabName);
+        }
+
+        // Render KPI values
+        function renderKPIs() {
+            document.getElementById('totalSalesKPI').innerText = salesData.totalSales.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('totalOrdersKPI').innerText = salesData.totalOrders.toLocaleString('en-US');
+            document.getElementById('avgOrderValueKPI').innerText = salesData.averageOrderValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            if (salesData.topSellingItems.labels.length > 0) {
+                document.getElementById('topSellingItemLabel').innerText = salesData.topSellingItems.labels[0];
+                document.getElementById('topSellingItemValue').innerText = `₱${salesData.topSellingItems.values[0].toLocaleString('en-US')}`;
+            } else {
+                document.getElementById('topSellingItemLabel').innerText = 'N/A';
+                document.getElementById('topSellingItemValue').innerText = 'No Data';
+            }
+        }
+
+
+        // Chart functions
+        function createMonthlySalesChart() {
+            const trace = {
+                x: salesData.monthlySales.labels,
+                y: salesData.monthlySales.values,
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: { color: colors.primary, width: 4 },
+                marker: { size: 8, color: colors.secondary },
+                fill: 'tozeroy',
+                fillcolor: 'rgba(26, 188, 156, 0.1)'
+            };
+            const layout = {
+                xaxis: { title: 'Month', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                yaxis: { title: 'Sales (₱)', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: colors.darkText, family: 'Roboto' },
+                margin: { t: 20, r: 20, b: 40, l: 60 }
+            };
+            Plotly.newPlot('monthly-sales-chart', [trace], layout, { responsive: true, displayModeBar: false });
+        }
+
+        function createCategorySalesChart() {
+            const trace = {
+                labels: salesData.salesByCategory.labels,
+                values: salesData.salesByCategory.values,
+                type: 'pie',
+                hole: 0.6,
+                marker: { colors: colors.gradientColors },
+                textinfo: 'label+percent',
+                textposition: 'outside',
+                automargin: true
+            };
+            const layout = {
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: colors.darkText, family: 'Roboto' },
+                showlegend: false,
+                margin: { t: 20, r: 20, b: 20, l: 20 }
+            };
+            Plotly.newPlot('category-sales-chart', [trace], layout, { responsive: true, displayModeBar: false });
+        }
+
+        function createPaymentMethodChart() {
+            const trace = {
+                x: salesData.salesByPaymentMethod.labels,
+                y: salesData.salesByPaymentMethod.values,
+                type: 'bar',
+                marker: {
+                    color: salesData.salesByPaymentMethod.values.map((d, i) => colors.gradientColors[i % colors.gradientColors.length]),
+                    line: { color: colors.card_bg, width: 1 }
+                }
+            };
+            const layout = {
+                xaxis: { title: 'Payment Method', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                yaxis: { title: 'Sales (₱)', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: colors.darkText, family: 'Roboto' },
+                margin: { t: 20, r: 20, b: 40, l: 60 }
+            };
+            Plotly.newPlot('payment-method-chart', [trace], layout, { responsive: true, displayModeBar: false });
+            Plotly.newPlot('payment-method-large-chart', [trace], layout, { responsive: true, displayModeBar: false }); // For large view in 'payment' tab
+        }
+
+        function createTopProductsChart() {
+            const trace = {
+                x: salesData.topSellingItems.values,
+                y: salesData.topSellingItems.labels.map(label => label.length > 25 ? label.substring(0, 25) + '...' : label),
+                type: 'bar',
+                orientation: 'h',
+                marker: {
+                    color: salesData.topSellingItems.values.map((d, i) => colors.gradientColors[i % colors.gradientColors.length]),
+                    line: { color: colors.card_bg, width: 1 }
+                }
+            };
+            const layout = {
+                xaxis: { title: 'Sales (₱)', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                yaxis: { automargin: true, color: colors.darkText, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: colors.darkText, family: 'Roboto' },
+                margin: { t: 20, r: 20, b: 40, l: 150 }
+            };
+            Plotly.newPlot('top-products-chart', [trace], layout, { responsive: true, displayModeBar: false });
+        }
+
+        function createSalesForecastChart() {
+            const traceActual = {
+                x: salesData.forecastedMonthlySales.labels.slice(0, salesData.monthlySales.labels.length),
+                y: salesData.forecastedMonthlySales.actual.slice(0, salesData.monthlySales.labels.length),
+                mode: 'lines+markers',
+                name: 'Actual Sales',
+                line: { color: colors.primary, width: 3 }
+            };
+
+            const tracePredicted = {
+                x: salesData.forecastedMonthlySales.labels.slice(salesData.monthlySales.labels.length - 1),
+                y: salesData.forecastedMonthlySales.predicted.slice(salesData.monthlySales.labels.length - 1),
+                mode: 'lines+markers',
+                name: 'Forecasted Sales',
+                line: { color: colors.secondary, width: 3, dash: 'dash' }
+            };
+
+            const layout = {
+                xaxis: { title: 'Month', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                yaxis: { title: 'Sales (₱)', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: colors.darkText, family: 'Roboto' },
+                margin: { t: 20, r: 20, b: 40, l: 60 },
+                showlegend: true,
+                legend: { x: 0.05, y: 0.95, bgcolor: 'rgba(0,0,0,0)', bordercolor: colors.subtle_border, font: { color: colors.darkText } }
+            };
+            Plotly.newPlot('sales-forecast-chart', [traceActual, tracePredicted], layout, { responsive: true, displayModeBar: false });
+        }
+
+        // Sales by Hour of Day
+        function createSalesByHourChart() {
+            const trace = {
+                x: salesData.salesByHour.labels,
+                y: salesData.salesByHour.values,
+                type: 'bar',
+                marker: {
+                    color: colors.accent,
+                    line: { color: colors.card_bg, width: 1 }
+                }
+            };
+            const layout = {
+                xaxis: { title: 'Hour of Day', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                yaxis: { title: 'Sales (₱)', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: colors.darkText, family: 'Roboto' },
+                margin: { t: 20, r: 20, b: 40, l: 60 }
+            };
+            Plotly.newPlot('sales-by-hour-chart', [trace], layout, { responsive: true, displayModeBar: false });
+        }
+
+        // Sales by Day of Week
+        function createSalesByDayOfWeekChart() {
+            const trace = {
+                x: salesData.salesByDayOfWeek.labels,
+                y: salesData.salesByDayOfWeek.values,
+                type: 'bar',
+                marker: {
+                    color: colors.secondary,
+                    line: { color: colors.card_bg, width: 1 }
+                }
+            };
+            const layout = {
+                xaxis: { title: 'Day of Week', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                yaxis: { title: 'Sales (₱)', titlefont: { color: colors.darkText }, tickfont: { color: colors.darkText }, gridcolor: colors.subtle_border },
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: colors.darkText, family: 'Roboto' },
+                margin: { t: 20, r: 20, b: 40, l: 60 }
+            };
+            Plotly.newPlot('sales-by-day-of-week-chart', [trace], layout, { responsive: true, displayModeBar: false });
+        }
+
+        // Render charts based on active tab
+        function renderChartsForTab(tabName) {
+            // Use setTimeout to ensure the tab content is visible before rendering, preventing chart rendering issues.
+            setTimeout(() => {
+                switch (tabName) {
+                    case 'dashboard': // Now contains KPI and Core Sales Trends charts
+                        renderKPIs();
+                        createMonthlySalesChart();
+                        createCategorySalesChart();
+                        createPaymentMethodChart();
+                        break;
+                    case 'overview': // This tab is now empty of charts as per user's instruction
+                        // No charts to render for 'overview'
+                        break;
+                    case 'products':
+                        createTopProductsChart();
+                        break;
+                    case 'payment':
+                        createPaymentMethodChart(); // Renders in large view for payment tab
+                        break;
+                    case 'time':
+                        createSalesByHourChart();
+                        createSalesByDayOfWeekChart();
+                        break;
+                    case 'forecast':
+                        // Monthly Sales Trend chart is now in the forecast tab directly
+                        break;
+                    case 'insights':
+                        // No charts in insights tab, but ensure previous charts are cleared if needed
+                        break;
+                }
+            }, 100);
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function () {
+            renderKPIs();
+            renderInsights();
+            // Show initial tab (overview) and render its charts
+            showTab('overview');
+
+            // Placeholder for filter functionality (no actual filtering with sample data)
+            document.querySelector('.apply-filters').addEventListener('click', () => {
+                alert('Filter applied! (Note: With sample data, this button is for demonstration only.)');
+            });
+        });
+
+        // Handle window resize to ensure responsiveness of Plotly charts
+        window.addEventListener('resize', function () {
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab) {
+                renderChartsForTab(activeTab.id);
+            }
+        });
+
+        function showForecastChart(type, button) {
+            document.getElementById("forecast-frame").src = `monthly_sales_chart_${type}.html`;
+
+            const container = button.closest(".chart-switcher");
+            const buttons = container.querySelectorAll(".forecast-btn");
+            buttons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+        }
+
+        function showCategoryChart(type, button) {
+            const chartMap = {
+                all: "chart-all",
+                beverages: "chart-beverages",
+                fastfood: "chart-fastfood"
+            };
+
+            for (let key in chartMap) {
+                const el = document.getElementById(chartMap[key]);
+                if (el) el.style.display = "none";
+            }
+
+            const activeChart = document.getElementById(chartMap[type]);
+            if (activeChart) activeChart.style.display = "block";
+
+            const container = button.closest(".chart-switcher");
+            const buttons = container.querySelectorAll(".category-btn");
+            buttons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+        }
+
+        function showTopItemsChart(type, button) {
+            // Hide all iframes
+            document.getElementById('chart-revenue').style.display = 'none';
+            document.getElementById('chart-quantity').style.display = 'none';
+            document.getElementById('chart-frequency').style.display = 'none';
+            document.getElementById('chart-avgprice').style.display = 'none';
+
+            // Show selected iframe
+            document.getElementById('chart-' + type).style.display = 'block';
+
+            // Button state
+            const buttons = button.parentElement.querySelectorAll('.switch-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+        function showChart(chartType, button) {
+            const chartIds = ['scatter', 'correlation', 'segments', 'outliers', 'trend'];
+
+            chartIds.forEach(id => {
+                document.getElementById(`chart-${id}`).style.display = (id === chartType) ? 'block' : 'none';
+            });
+
+            const buttons = document.querySelectorAll('.switch-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+        function loadForecast() {
+            const item = document.getElementById('itemSelect').value;
+            const duration = document.getElementById('monthSelect').value;
+            const iframe = document.getElementById('forecast_iframe_unique');
+            const path = `forecast_htmls/${item}_${duration}.html`;
+            iframe.src = path;
+        }
+
+    </script>
+</body>
+
+</html>
